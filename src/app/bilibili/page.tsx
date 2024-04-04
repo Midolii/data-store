@@ -8,14 +8,7 @@ export default function Home() {
   const placeholder = "复制视频分享链接到此处";
   const cardTitle = "查询记录";
   const size: "sm" | "md" | "lg" = "sm";
-  const [itemList, setItemList] = useState<VideoInfoType[]>([
-    {
-      bvid: "BV1xa4y1372a",
-      title: "❄️在这么冷的天，别离我那么远❄️",
-      pic: "http://i1.hdslb.com/bfs/archive/c9b4a6266b33ed3072c911808975972b6e72b15f.jpg",
-      desc: "雪 Distance-：\n原唱：Capper / 罗言RollFlash\n翻唱/后期：兰音Reine",
-    },
-  ]);
+  const [itemList, setItemList] = useState<VideoInfoType[]>([]);
   const [value, setValue] = useState("");
   const [existItem, setExistItem] = useState<VideoInfoType>();
   const [searchItemBvid, setSearchItemBvid] = useState("");
