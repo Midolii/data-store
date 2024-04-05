@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { MHeader } from "@/components/MHeader";
 
 export const metadata: Metadata = {
   title: "Midolii",
   description: "Midolii data store.",
   referrer: "no-referrer",
+  icons: "/avatar.png",
 };
 
 export default function RootLayout({
@@ -14,7 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <MHeader />
+        {children}
+      </body>
     </html>
   );
 }
