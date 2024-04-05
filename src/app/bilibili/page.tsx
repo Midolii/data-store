@@ -1,17 +1,19 @@
 "use client";
 import { Button, Input } from "@nextui-org/react";
 import { History, VideoInfoType } from "./components/History";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 
 export default function Home() {
-  const placeholder = "复制视频分享链接到此处";
+  const placeholder = "复制包含视频bvid的链接到此处";
   const cardTitle = "查询记录";
   const size: "sm" | "md" | "lg" = "sm";
   const [itemList, setItemList] = useState<VideoInfoType[]>([]);
   const [value, setValue] = useState("");
   const [existItem, setExistItem] = useState<VideoInfoType>();
   const [searchItemBvid, setSearchItemBvid] = useState("");
+  const [minHeight, setMinHeight] = useState("100vh");
+  const main = useRef<HTMLElement>(null);
 
   const onSearchBtnPress = async () => {
     const start = value.indexOf("BV1");
@@ -37,9 +39,26 @@ export default function Home() {
       return;
     }
   };
+  useEffect(() => {
+    const resize = () => {
+      if (main.current && window) {
+        setMinHeight(window.innerHeight + "px");
+      }
+    };
+    window.onresize = resize;
+    return () => {
+      window.onresize = null;
+    };
+  }, [main]);
 
   return (
-    <main className="flex min-h-screen flex-col text-sm text-black-88">
+    <main
+      ref={main}
+      className="flex flex-col text-sm text-black-88 duration-300"
+      style={{
+        minHeight,
+      }}
+    >
       {/* 内容区域 */}
       <div className="overflow-auto pb-20 p-4 flex flex-col flex-1 items-end w-full">
         <History
