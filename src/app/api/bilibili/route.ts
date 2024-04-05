@@ -1,3 +1,4 @@
+import { BilibiliVideoInfo } from "@/types/bilibili";
 import axios from "axios";
 import { NextResponse } from "next/server";
 
@@ -13,7 +14,7 @@ export async function POST(request: Request) {
   const {
     data: { title, desc, pic },
   } = data;
-  return NextResponse.json({
+  return NextResponse.json<BilibiliVideoInfo>({
     bvid,
     title,
     pic,
