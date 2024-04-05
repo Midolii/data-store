@@ -81,7 +81,7 @@ export const History: React.FC<HistoryProps> = (props) => {
             size={16}
             className="duration-300"
             style={{
-              maxHeight: currentItem ? "215px" : "calc(100vh - 12rem)",
+              maxHeight: currentItem ? "300px" : "calc(100vh - 12rem)",
             }}
           >
             <div ref={content} className="flex flex-col min-h-20">
