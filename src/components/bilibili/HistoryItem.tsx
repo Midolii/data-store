@@ -38,11 +38,12 @@ const HistoryItem: React.FC<
           }}
         >
           <Image
-            className="shrink-0 h-12"
+            className="shrink-0 h-12 w-[4.5rem] object-cover"
             radius="sm"
             alt={item.title}
             src={item.pic}
             height={48}
+            width={72}
           />
           <span className="flex-1 text-ellipsis min-w-0 whitespace-nowrap overflow-hidden mr-4">
             {item.title || "-"}
